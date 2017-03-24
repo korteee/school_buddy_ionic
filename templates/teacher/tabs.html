@@ -1,0 +1,19 @@
+<!--
+Create tabs with an icon and label, using the tabs-calm style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-calm">
+  <!-- New task Tab -->
+  <ion-tab title="Νέο Task" icon-off="ion-document-text" icon-on="ion-document-text" href="#/teacher/new-task">
+    <ion-nav-view name="tab-new-task"></ion-nav-view>
+  </ion-tab>
+  <!-- Tasks Tab -->
+  <ion-tab title="Αξιολόγηση" icon-off="ion-checkmark-round" icon-on="ion-checkmark-round" href="#/teacher/eval">
+    <ion-nav-view name="tab-eval"></ion-nav-view>
+  </ion-tab>
+  <!-- Settings Tab -->
+  <ion-tab title="Ρυθμίσεις" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/teacher/settings">
+    <ion-nav-view name="tab-settings"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

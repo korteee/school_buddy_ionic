@@ -1,0 +1,25 @@
+<ion-view view-title="{{ct.courseName}}">
+  <ion-content class="padding">
+    <ion-card ui-sref="teacher.eval.course-tasks.submitters ({courseId:1, courseName:test})" class="padding" ng-repeat="task in ct.course.tasks">
+      <ion-item class = "item-text-wrap item-divider">
+          <div class="row">
+            <div class="col col-20">{{'# ' + $index}}</div>
+            <div class="col col-60">{{task.name}}</div>
+            <div class="col col-20">
+              <span class="badge badge-calm">{{task.submitted}}</span>
+            </div>
+          </div>
+      </ion-item>
+      <ion-item>
+        {{task.description}}
+      </ion-item>
+      <ion-item>
+        <label>Ημ. Λήξης:</label>
+        <strong>{{task.expires_at}}</strong>
+      </ion-item>
+    </ion-card>
+    <a ui-sref="teacher.eval" class="button button-calm button-block">
+        Πίσω στα μαθήματα
+    </a>
+  </ion-content>
+</ion-view>

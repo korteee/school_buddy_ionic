@@ -1,0 +1,9 @@
+<ion-view view-title="Καταχωρήσεις">
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item ng-click="su.openEvalAlert($index)" ng-repeat="student in su.submittedStudents track by $index">
+                {{student.full_name}} : {{student.grade}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

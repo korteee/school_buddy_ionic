@@ -1,0 +1,25 @@
+<ion-view view-title="Single Task">
+  <ion-content class="padding">
+    <ion-card ng-repeat="task in st.tasks">
+      <ion-item>
+        <h1>
+          {{task.name}}
+        </h1>
+      </ion-item>
+      <ion-item class="item-text-wrap" ng-repeat="subtask in task.subtasks">
+        <div class="row">
+          <div class="col-10">{{$index + 1}}</div>
+          <div class="col-90">
+            {{subtask.description}}
+          </div>
+        </div>
+      </ion-item>
+      <ion-item>
+        Το task τελειώνει στις: <b>{{task.due_date | date}}</b>
+      </ion-item>
+    </ion-card>
+    <a ui-sref="tab.tasks" class="button button-block">
+        Πίσω στα tasks
+    </a>
+  </ion-content>
+</ion-view>

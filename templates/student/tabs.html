@@ -1,0 +1,19 @@
+<!--
+Create tabs with an icon and label, using the tabs-calm style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-calm">
+  <!-- Buddy Tab -->
+  <ion-tab title="Buddy" icon-off="ion-android-contact" icon-on="ion-android-contact" href="#/student/buddy">
+    <ion-nav-view name="tab-buddy"></ion-nav-view>
+  </ion-tab>
+  <!-- Tasks Tab -->
+  <ion-tab title="Tasks" icon-off="ion-clipboard" icon-on="ion-clipboard" href="#/student/tasks">
+    <ion-nav-view name="tab-tasks"></ion-nav-view>
+  </ion-tab>
+  <!-- Settings Tab -->
+  <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/student/settings">
+    <ion-nav-view name="tab-settings"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

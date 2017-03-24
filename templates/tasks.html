@@ -1,0 +1,9 @@
+<ion-view>
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item ng-repeat="task in ts.tasks track by $index">
+                {{task.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

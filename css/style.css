@@ -1,0 +1,116 @@
+/* Empty. Add your own CSS if you like */
+
+.medium-icon::before {
+  font-size: 35px;
+}
+
+.disabled-button {
+  opacity: 1 !important;
+}
+
+#circle {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border: 1px solid darkred;
+  border-width: 2px;
+  margin: 0 auto;
+  margin-top: 120px;
+  position: relative;
+  background-size: 135px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sad {
+  background-image: url('../img/sad.png');
+}
+
+.neutral {
+  background-image: url('../img/neutral.png');
+}
+
+.happy {
+  background-image: url('../img/happy.png');
+}
+
+#cart {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  bottom: -40px;
+  left: 35%;
+  background-image: url('../img/cart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.not-btn {
+  position: absolute;
+}
+
+.not-btn {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+.fake {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.not-btn.btn-success {
+  background-color: green;
+  right: 14px;
+  top: 12px;
+}
+
+.not-btn.btn-warning {
+  background-color: darkorange;
+  right: 95px;
+  top: -25px;
+}
+
+.not-btn.btn-danger {
+  background-color: red;
+  left: 14px;
+  top: 9px;
+}
+
+.light-in-out {
+  -webkit-animation: opacity 1s infinite;
+  animation: opacity 1s infinite;
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: .4;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .4;
+  }
+}
