@@ -27,38 +27,38 @@ angular.module('app', ['ionic'])
 
   $stateProvider
 
-  .state('login', {
+    .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller:'LoginCtrl',
-    controllerAs:'lo'
+    controller: 'LoginCtrl',
+    controllerAs: 'lo'
   })
 
-    .state('student', {
+  .state('student', {
     url: '/student',
     abstract: true,
     templateUrl: 'templates/student/tabs.html'
   })
 
 
-  .state('student.tasks', {
-    url: '/tasks',
+  .state('student.courses', {
+    url: '/courses',
     views: {
-      'tab-tasks': {
-        templateUrl: 'templates/student/tasks.html',
-        controller: 'tasksCtrl',
-        controllerAs: "ta"
+      'tab-courses@student': {
+        templateUrl: 'templates/student/courses.html',
+        controller: 'StudentCoursesCtrl',
+        controllerAs: "sc"
       }
     }
   })
 
-  .state('student.tasks.single-task', {
-    url: '/task/:taskId/:taskName',
+  .state('student.courses.course-tasks', {
+    url: '/courses/:courseId/:courseName',
     views: {
-      'tab-tasks@student': {
-        templateUrl: "templates/student/single-task.html",
-        controller: 'singleTaskCtrl',
-        controllerAs: 'st'
+      'tab-courses@student': {
+        templateUrl: "templates/student/course-tasks.html",
+        controller: 'StudentCourseTasks',
+        controllerAs: 'sct'
       }
     }
   })
@@ -66,10 +66,21 @@ angular.module('app', ['ionic'])
   .state('student.buddy', {
     url: '/buddy',
     views: {
-      'tab-buddy': {
+      'tab-buddy@student': {
         templateUrl: 'templates/student/buddy.html',
         controller: 'buddyCtrl',
         controllerAs: 'bu'
+      }
+    }
+  })
+
+  .state('student.buddy.purchase', {
+    url: '/buddy/purchase',
+    views: {
+      'tab-buddy@student': {
+        templateUrl: 'templates/student/purchase.html',
+        controller: 'PurchaseCtrl',
+        controllerAs: 'pu'
       }
     }
   })
@@ -86,7 +97,7 @@ angular.module('app', ['ionic'])
   })
 
 
-   .state('teacher', {
+  .state('teacher', {
     url: '/teacher',
     abstract: true,
     templateUrl: 'templates/teacher/tabs.html'

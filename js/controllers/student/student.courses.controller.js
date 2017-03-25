@@ -3,15 +3,14 @@
 
   angular
     .module('app')
-    .controller('tasksCtrl', tasksCtrl);
+    .controller('StudentCoursesCtrl', StudentCoursesCtrl);
 
-  tasksCtrl.$inject = [];
-  var counter = 0.05;
+  StudentCoursesCtrl.$inject = [];
 
-  function tasksCtrl() {
+  function StudentCoursesCtrl() {
     var vm = this;
 
-    vm.tasks = [{
+    vm.courses = [{
       name: "Μαθηματικά",
       id: 1
     }, {
