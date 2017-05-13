@@ -5,11 +5,14 @@
     .module('app')
     .controller('settingsCtrl', settingsCtrl);
 
-  settingsCtrl.$inject = [];
+  settingsCtrl.$inject = ['$state'];
 
-  function settingsCtrl() {
+  function settingsCtrl($state) {
     var vm = this;
-
+    vm.signOut = function() {
+      localStorage.clear();
+      $state.go('login');
+    }
 
   }
 })();

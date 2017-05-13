@@ -1,32 +1,33 @@
-(function () {
-  'use strict';
+(function() {
+    'use strict';
 
-  angular
-    .module('app')
-    .controller('StudentCoursesCtrl', StudentCoursesCtrl);
+    angular
+        .module('app')
+        .controller('StudentCoursesCtrl', StudentCoursesCtrl);
 
-  StudentCoursesCtrl.$inject = [];
+    StudentCoursesCtrl.$inject = ['Course'];
 
-  function StudentCoursesCtrl() {
-    var vm = this;
+    function StudentCoursesCtrl(Course) {
+        var vm = this;
 
-    vm.courses = [{
-      name: "Μαθηματικά",
-      id: 1
-    }, {
-      name: "Θρησκευτικά",
-      id: 2
-    }, {
-      name: "Γλώσσα",
-      id: 3
-    }, {
-      name: "Ιστορία",
-      id: 4
-    }, {
-      name: "Φυσική",
-      id: 5
-    }]
+        var _getCourses = getCourses;
+
+        activate();
+
+        function activate() {
+            _getCourses();
+        };
+
+        function getCourses() {
+            Course.all().then(resp => {
+                vm.courses = resp.data;
+            },resp=>{
+              console.log('Failed to get data');
+            })
+        }
 
 
-  }
+
+
+    }
 })();

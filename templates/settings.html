@@ -1,10 +1,7 @@
-<ion-view view-title="Account">
+<ion-view view-title="Ρυθμίσεις">
   <ion-content class="padding">
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    <button class="button button-block button-calm" ui-sref="login">Sign Out</button>
+    <button class="button button-block button-calm" ng-click="se.signOut()">Αποσύνδεση</button>
     </ion-list>
   </ion-content>
 </ion-view>

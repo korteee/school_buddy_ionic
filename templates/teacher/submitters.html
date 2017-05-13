@@ -1,9 +1,14 @@
 <ion-view view-title="Καταχωρήσεις">
     <ion-content class="padding">
         <ion-list>
-            <ion-item ng-click="su.openEvalAlert($index)" ng-repeat="student in su.submittedStudents track by $index">
-                {{student.full_name}} : {{student.grade}}
+            <ion-item ng-click="su.openEvalAlert($index)"
+                      ng-repeat="student in su.students track by $index">
+                {{student.first_name + ' ' +student.last_name}}
             </ion-item>
         </ion-list>
+
+
+        <span ng-show="!su.students.length">Δεν υπάρχουν διαθέσιμοι μαθητές για καταχώρηση βαθμολογίας</span>
+
     </ion-content>
 </ion-view>

@@ -1,23 +1,28 @@
 <ion-view view-title="Πράκτορες">
-  <ion-nav-buttons side="right">
-    <button class="disabled-button button button-icon">
+    <ion-nav-buttons side="right">
+        <button class="disabled-button button button-icon">
       <i class="icon ion-star"></i> 350
     </button>
-  </ion-nav-buttons>
-  <ion-nav-buttons side="left">
-    <button class="disabled-button button button-icon">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button class="disabled-button button button-icon">
       <i class="icon ion-android-happy"></i>
     </button>
-  </ion-nav-buttons>
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="buddy in pu.availableBuddies track by $index" class="item-thumbnail-left item-button-right">
-        <img ng-src="{{buddy.img_src}}">
-        <h2>{{buddy.name}}</h2>
-        {{buddy.value}} <span class="icon ion-star"></span>
-        <button class="button button-icon"><span class="icon ion-bag"></span></button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-click="pu.onBuddyClick($index)"
+                      ng-repeat="bGroup in pu.availableBuddyGroups track by $index"
+                      class="item-button-right item-text-wrap">
+                <h2>{{bGroup.name}} </h2>
+                <small ng-show="bGroup.id === pu.userDefaultBuddyGroupId" class="assertive">(Προεπιλεγμένο)</small> <br>
+                <small ng-show="pu.isPurchased(bGroup.id)" class="energized">(Έχει αγοραστεί)</small> <br>
+                {{bGroup.cost}} <span class="icon ion-star"></span>
+                <ion-option-button ng-click="pu.purchaseBuddyGroup(bGroup)" ng-show="bGroup.id !== 2" class="button-positive"><i class="icon ion-bag"></i></ion-option-button>
+                <ion-option-button ng-click="pu.setDefault(bGroup.id)" class="button-calm"><i class="icon ion-checkmark"></i></ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
-<img src="http://www.allsmileys.com/files/smiley-central-emotions/5186.gif" style="border:0px;vertical-align:middle">
+<img src="http://www.allsmileys.com/files/smiley-central-emotions/5186.gif"
+     style="border:0px;vertical-align:middle">

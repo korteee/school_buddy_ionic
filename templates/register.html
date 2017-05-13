@@ -1,0 +1,36 @@
+<ion-view>
+    <ion-content class="padding">
+        <form name="loginForm"
+              ng-submit="re.register()">
+            <div class="list list-inset">
+                <ion-item class="item-divider">
+                    Συπληρώστε τα στοιχεία
+                </ion-item>
+                <label class="item item-input">
+              <input ng-model="re.user.firstName" required  type="text" placeholder="Όνομα">
+          </label>
+                <label class="item item-input">
+              <input ng-model="re.user.lastName" required type="text" placeholder="Επίθετο">
+          </label>
+                <label class="item item-input">
+              <input ng-model="re.user.username"  required type="text" placeholder="Όνομα χρήστη" >
+          </label>
+                <label class="item item-input">
+              <input ng-model="re.user.password" required  type="password" placeholder="Κωδικός πρόσβασης" >
+          </label>
+
+                <ion-radio ng-repeat="item in re.availableUserTypes track by $index"
+                           ng-value="item.code"
+                           ng-model="re.user.type">
+                    {{ item.value }}
+                </ion-radio>
+
+            </div>
+
+            <button type="submit"
+                    class="button button-calm button-block">Δημιουργία λογαριασμού</button>
+
+        </form>
+
+    </ion-content>
+</ion-view>

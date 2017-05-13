@@ -4,11 +4,11 @@
   angular
     .module('app')
 
-  .constant('MESSAGES', {
-    danger: {
-      part_1: "Οι προθεσμία παράδοσης στα μαθήματα ",
-      part_2: " λήγουν. Προλαβαίνομε, πάμε γερά να τελειώσουμε όλες τις εργασίες. Δεν με πιστεύεις; Μπες στο μάθημα και θα το διαπιστώσεις μόνος σου."
-    }
-  });
+  .constant('API', {
+    url: 'https://sbuddy-api.herokuapp.com',
+    img_url:'http://res.cloudinary.com/hi3cmlta6/image/upload/v1494156754'
+  })
+
+
 
 })();

@@ -1,50 +1,37 @@
-(function () {
-  'use strict';
+(function() {
+    'use strict';
 
-  angular
-    .module('app')
-    .controller('StudentCourseTasks', StudentCourseTasks);
+    angular
+        .module('app')
+        .controller('StudentCourseTasks', StudentCourseTasks);
 
-  StudentCourseTasks.$inject = ['$stateParams'];
+    StudentCourseTasks.$inject = ['Task', '$stateParams'];
 
-  function StudentCourseTasks($stateParams) {
-    var vm = this;
-    vm.course = {
-      name: $stateParams.courseName,
-      id: $stateParams.id
-    };
+    function StudentCourseTasks(Task, $stateParams) {
+        var vm = this;
+        vm.course = {
+            name: $stateParams.courseName,
+            id: $stateParams.courseId
+        };
 
-    vm.course.tasks = [{
-      "id": 1,
-      "name": "Κάνε την πρόσθεση και δώσε το αποτέλεσμα",
-      "description": "5 + 2 = ?",
-      "expires_at": "2017-04-20",
-      "reward": {
-        "code": 2,
-        "name": "ασημένιο"
-      },
-      "submitted": 12
-    }, {
-      "id": 2,
-      "name": "Κάνε την αφαίρεση και δώσε το αποτέλεσμα",
-      "description": "5 - 2 = ?",
-      "expires_at": "2017-04-20",
-      "reward": {
-        "code": 2,
-        "name": "ασημένιο"
-      },
-      "submitted": 8
-    }, {
-      "id": 3,
-      "name": "Κάνε την διαίρεση και δώσε το αποτέλεσμα",
-      "description": "5 / 0 = ?",
-      "expires_at": "2017-04-20",
-      "reward": {
-        "code": 1,
-        "name": "χρυσό"
-      },
-      "submitted": 5
-    }]
+        var _getCourseTasks = getCourseTasks;
 
-  }
+        activate();
+
+        function activate() {
+            _getCourseTasks($stateParams.courseId);
+        };
+
+        function getCourseTasks(courseId) {
+            Task.ofCourse(courseId).then(resp => {
+                console.log(resp);
+                vm.tasks = resp.data;
+            }, resp => {
+                console.log('Failed to get courses');
+            })
+        }
+
+
+
+    }
 })();

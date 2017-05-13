@@ -1,50 +1,47 @@
-(function () {
-  'use strict';
+(function() {
+    'use strict';
 
-  angular
-    .module('app')
-    .controller('LoginCtrl', LoginCtrl);
+    angular
+        .module('app')
+        .controller('LoginCtrl', LoginCtrl);
 
-  LoginCtrl.inject = ['$ionicPopup', '$state'];
+    LoginCtrl.inject = ['$ionicPopup', '$state', 'Connection'];
 
-  function LoginCtrl($ionicPopup, $state) {
-    var vm = this;
-    vm.login = login;
-
-
-    activate();
+    function LoginCtrl($ionicPopup, $state, Connection) {
+        var vm = this;
+        vm.login = login;
 
 
-    function activate() {}
-
-    function login() {
+        activate();
 
 
-      if (!(vm.username && vm.password)) {
-        $ionicPopup.alert({
-          title: 'Σφάλμα',
-          template: 'Το όνομα χρήστη ή ο κωδικός πρόσβασης είναι λανθασμένος'
-        });
-        return;
-      }
+        function activate() {}
 
-      if (vm.username == "teacher") {
-        let user = {
-          name: "Κίμωνας Ιντζόγλου",
-          type: 0
+        function login() {
+            if (!(vm.username && vm.password)) {
+                $ionicPopup.alert({
+                    title: 'Σφάλμα',
+                    template: 'Το όνομα χρήστη ή ο κωδικός πρόσβασης είναι λανθασμένος'
+                });
+                return;
+            } else {
+                Connection.login(vm.username, vm.password).then(resp => {
+                    localStorage.setItem('user', angular.toJson(resp.data));
+                    //Teacher
+                    if (resp.data.type === 0) {
+                        $state.go('teacher.new-task');
+                    } else {
+                        $state.go('student.buddy');
+                    }
+                }, resp => {
+                    $ionicPopup.alert({
+                        title: 'Σφάλμα',
+                        template: 'Το όνομα χρήστη ή ο κωδικός πρόσβασης είναι λανθασμένος'
+                    });
+                })
+            }
+
+
         }
-        localStorage.setItem("user", angular.toJson(user));
-        $state.go('teacher.new-task');
-      } else {
-        let user = {
-          name: "Σταύρος Κορτέσας",
-          type: 1
-        }
-        localStorage.setItem("user", angular.toJson(user));
-        $state.go('student.buddy');
-      }
-
-      
     }
-  }
 })();

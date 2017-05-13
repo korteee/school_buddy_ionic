@@ -1,38 +1,30 @@
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('app')
         .controller('CoursesCtrl', CoursesCtrl);
 
-    CoursesCtrl.inject = [];
-    function CoursesCtrl() {
+    CoursesCtrl.inject = ['Course'];
+
+    function CoursesCtrl(Course) {
         var vm = this;
-        vm.courses = [
-            {
-                "id":1,
-                "name":"Μαθηματικά"
-            },
-            {
-                "id":2,
-                "name":"Ιστορία"
-            },
-            {
-                "id":3,
-                "name":"Γεωγραφία"
-            },
-            {
-                "id":4,
-                "name":"Γλώσσα"
-            }
-        ]
-        
+
+        var _getCourses = getCourses;
 
         activate();
 
 
-        function activate() { 
-            console.log("Its courses")
+        function activate() {
+            _getCourses();
+        }
+
+        function getCourses() {
+            Course.all().then(resp => {
+                vm.courses = resp.data;
+            }, resp => {
+                console.log('Failed to get courses');
+            })
         }
     }
 })();

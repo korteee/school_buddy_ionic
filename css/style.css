@@ -1,116 +1,161 @@
-/* Empty. Add your own CSS if you like */
+    /* Empty. Add your own CSS if you like */
 
-.medium-icon::before {
-  font-size: 35px;
-}
+    .medium-icon::before {
+        font-size: 35px;
+    }
 
-.disabled-button {
-  opacity: 1 !important;
-}
+    .disabled-button {
+        opacity: 1 !important;
+    }
 
-#circle {
-  border-radius: 50%;
-  width: 250px;
-  height: 250px;
-  border: 1px solid darkred;
-  border-width: 2px;
-  margin: 0 auto;
-  margin-top: 120px;
-  position: relative;
-  background-size: 135px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+    #circle {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        border: 1px solid darkred;
+        border-width: 2px;
+        margin: 0 auto;
+        margin-top: 120px;
+        position: relative;
+        background-size: 135px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
-.sad {
-  background-image: url('../img/sad.png');
-}
+    #cart {
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        bottom: -40px;
+        left: 35%;
+        background-image: url('../img/cart.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 
-.neutral {
-  background-image: url('../img/neutral.png');
-}
+    .not-btn {
+        position: absolute;
+    }
 
-.happy {
-  background-image: url('../img/happy.png');
-}
+    .not-btn {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: none;
+    }
 
-#cart {
-  height: 80px;
-  width: 80px;
-  position: absolute;
-  bottom: -40px;
-  left: 35%;
-  background-image: url('../img/cart.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+    .fake {
+        content: '';
+        width: 50px;
+        height: 50px;
+        background: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        opacity: 0;
+    }
 
-.not-btn {
-  position: absolute;
-}
+    .not-btn.btn-success {
+        background-color: green;
+        right: 14px;
+        top: 12px;
+    }
 
-.not-btn {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none;
-}
+    .not-btn.btn-warning {
+        background-color: darkorange;
+        right: 95px;
+        top: -25px;
+    }
 
-.fake {
-  content: '';
-  width: 50px;
-  height: 50px;
-  background: black;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  opacity: 0;
-}
+    .not-btn.btn-danger {
+        background-color: red;
+        left: 14px;
+        top: 9px;
+    }
 
-.not-btn.btn-success {
-  background-color: green;
-  right: 14px;
-  top: 12px;
-}
+    .light-in-out {
+        -webkit-animation: opacity 1s infinite;
+        animation: opacity 1s infinite;
+    }
 
-.not-btn.btn-warning {
-  background-color: darkorange;
-  right: 95px;
-  top: -25px;
-}
+    @-webkit-keyframes opacity {
+        0% {
+            opacity: 0.4;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0.4;
+        }
+    }
 
-.not-btn.btn-danger {
-  background-color: red;
-  left: 14px;
-  top: 9px;
-}
+    @keyframes opacity {
+        0% {
+            opacity: .4;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: .4;
+        }
+    }
 
-.light-in-out {
-  -webkit-animation: opacity 1s infinite;
-  animation: opacity 1s infinite;
-}
+    .buddyOptionsPopup>.popup {
+        height: 80%;
+    }
 
-@-webkit-keyframes opacity {
-  0% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.4;
-  }
-}
+    .buddyOptionsPopup .popup ion-content {
+        height: 100%;
+    }
 
-@keyframes opacity {
-  0% {
-    opacity: .4;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: .4;
-  }
-}
+    .buddyOptionsPopup .popup-body {
+        position: relative;
+        height: 100%;
+    }
+
+    .buddyOptionsPopup .swiper-slide {
+        position: relative;
+    }
+
+    .buddyOptionsPopup .swiper-slide>div {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .buddyOptionsPopup .swiper-pagination {
+        position: absolute;
+        bottom: 40px;
+    }
+
+    .buddyOptionsPopup .buddy-face-container {
+        width: 200px;
+        height: 200px;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .dateclass {
+        width: 100%;
+    }
+
+    .dateclass.placeholderclass::before {
+        width: 100%;
+        content: attr(placeholder);
+    }
+
+    .dateclass.placeholderclass:hover::before {
+        width: 0%;
+        content: "";
+    }
+
+    .logo {
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+        max-width: 200px;
+    }

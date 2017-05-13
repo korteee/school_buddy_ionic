@@ -1,26 +1,30 @@
-<ion-view view-title="Νέο Task">
-  <ion-content class="padding">
-    <div class="list list-inset">
-      <label class="item item-input item-select">
+<ion-view view-title="Νέο Καθήκον">
+    <ion-content class="padding">
+        <form name="newTaskForm"
+              ng-submit="nt.createTask()">
+            <div class="list list-inset">
+                <label class="item item-input item-select">
           <div class="input-label">Μάθημα:</div>
-          <select><option value="">Επιλέξτε Μάθημα</option></select>
+          <select ng-model="nt.task.course" ng-options="course.id as course.name for course in nt.courses"><option value="">Επιλέξτε Μάθημα</option></select>
         </label>
-      <label class="item item-input">
-              <input type="text" placeholder="Όνομα">
+                <label class="item item-input">
+              <input ng-model="nt.task.name" type="text" placeholder="Όνομα">
           </label>
-      <label class="item item-input">
-              <textarea rows="10" placeholder="Περιγραφή"></textarea>
+                <label class="item item-input">
+              <textarea ng-model="nt.task.description" rows="10" placeholder="Περιγραφή"></textarea>
           </label>
-      <label class="item item-input">
-            <input type="date" placeholder="Εισάγετε ημερομ. παράδοσης">
+                <label class="item item-input">
+            <input class="dateclass placeholderclass" ng-click="$(this).removeClass('placeholderclass')" ng-model="nt.task.dueDate" type="date" placeholder="Εισάγετε ημερομ. παράδοσης">
           </label>
-      <label class="item item-input item-select">
+                <label class="item item-input item-select">
           <div class="input-label">Βαθμός Δυσκολίας:</div>
-            <select>
+            <select ng-model="nt.task.difficulty" ng-options="difficulty.id as difficulty.name for difficulty in nt.difficulties">
               <option value="">Επιλέξτε βαθμό δυσκολίας</option>
             </select>
           </label>
-    </div>
-    <button class="button button-calm button-block">Καταχώρηση</button>
-  </ion-content>
+            </div>
+            <button type="submit"
+                    class="button button-calm button-block">Καταχώρηση</button>
+        </form>
+    </ion-content>
 </ion-view>

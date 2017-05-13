@@ -1,7 +1,7 @@
 <ion-view view-title="Μαθήματα">
   <ion-nav-buttons side="right">
     <button class="disabled-button button button-icon">
-      <i class="icon ion-star"></i> 350
+      <i class="icon ion-star"></i> {{student.stars}}
     </button>
   </ion-nav-buttons>
   <ion-nav-buttons side="left">
@@ -13,7 +13,7 @@
     <ion-list>
       <a ui-sref="student.courses.course-tasks ({courseId:course.id, courseName:course.name})" class="item item-badge" ng-repeat="course in sc.courses track by $index">
         {{course.name}}
-        <i class="badge badge-energized">1</i>
+        <!--<i class="badge badge-energized">1</i>-->
       </a>
     </ion-list>
   </ion-content>

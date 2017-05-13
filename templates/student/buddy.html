@@ -1,20 +1,40 @@
 <ion-view view-title="Buddy">
-  <ion-nav-buttons side="right">
-    <button class="disabled-button button button-icon">
-      <i class="icon ion-star"></i> 350
+    <ion-nav-buttons side="right">
+        <button class="disabled-button button button-icon">
+      <i class="icon ion-star"></i> {{student.stars}}
     </button>
-  </ion-nav-buttons>
-  <ion-nav-buttons side="left">
-    <button class="disabled-button button button-icon">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button class="disabled-button button button-icon">
       <i class="icon ion-android-happy"></i>
     </button>
-  </ion-nav-buttons>
-  <ion-content>
-    <div id="circle" class="sad">
-      <button ng-click="bu.readNotifications(bu.notifications.danger)" class="not-btn btn-danger "><div class="fake" ng-class="{'light-in-out':bu.hasUnreadNotifications(bu.notifications.danger)}"></div></button>
-      <button class="not-btn btn-warning"><div class="fake"></div></button>
-      <button class="not-btn btn-success"><div class="fake"></div></button>
-      <div ui-sref="student.buddy.purchase" id="cart"></div>
-    </div>
-  </ion-content>
+    </ion-nav-buttons>
+    <ion-content>
+        <div id="circle"
+             style="background-image:url('{{bu.imgUrl}}/{{bu.buddy.buddy_group_id}}/{{bu.buddy.feeling}}.png')">
+
+            <button ng-click=""
+                    class="not-btn btn-danger ">
+
+                    <div ng-class="{'light-in-out':bu.hasUnreadNotifications(0)}" class="fake"></div>
+              </button>
+
+            <button ng-click="bu.openNotifications(1)"
+                    class="not-btn btn-warning">
+
+                    <div ng-class="{'light-in-out':bu.hasUnreadNotifications(1)}" class="fake"></div>
+
+                </button>
+
+            <button ng-click="bu.openNotifications(2)" class="not-btn btn-success">
+
+              <div ng-class="{'light-in-out':bu.hasUnreadNotifications(2)}" class="fake"></div>
+
+            </button>
+
+
+            <div ui-sref="student.buddy.purchase"
+                 id="cart"></div>
+        </div>
+    </ion-content>
 </ion-view>

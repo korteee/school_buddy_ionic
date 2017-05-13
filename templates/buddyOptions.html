@@ -1,0 +1,7 @@
+<ion-content scroll="false">
+  <ion-slides options="options" slider="data.slider">
+    <ion-slide-page ng-repeat="buddy in buddyOptions.buddies | orderBy: 'feeling' track by $index">
+      <div class="buddy-face-container" style="background-image:url('{{imgUrl}}/{{buddyOptions.buddy_group_id}}/{{buddy.feeling}}.png')" alt=""></div>
+    </ion-slide-page>
+  </ion-slides>
+</ion-content>
